@@ -16,6 +16,11 @@ apartments.pop(0)
 
 # print(apartments)
 
+
+ # 2 choice
+def sort_price(apartments):
+    return float(apartments[8])
+
 while True:
     print("1. Get apartments by sequence number")
     print("2. Top 10 by highest price")
@@ -29,22 +34,40 @@ while True:
 
     if choice == '1':
         # https://www.w3schools.com/python/python_lists_access.asp
+        number = int(input("Enter Apartment number: "))
+        print(apartments[number])
         pass
     elif choice == '2':
         # https://www.w3schools.com/python/python_lists_sort.asp
+        apartments.sort(key=sort_price, reverse=True)
+        print(apartments[:10])
         pass
     elif choice == '3':
         # https://www.w3schools.com/python/python_lists_sort.asp
+        apartments.sort(key=sort_price, reverse=False)
+        print(apartments[:10])
         pass
     elif choice == '4':
         # https://www.w3schools.com/python/python_lists_comprehension.asp
         # https://www.w3schools.com/python/python_lists_access.asp - Range of Indexes
+        price = float(input("Enter Price: "))
+        cheaper_apartamnets = []
+        for x in apartments:
+            if float(x[8])< price:
+                cheaper_apartamnets.append(x)
+        print(cheaper_apartamnets[:20])
         pass
+
     elif choice == '5':
         # https://www.w3schools.com/python/python_lists_comprehension.asp
         # https://www.w3schools.com/python/python_lists_access.asp - Range of Indexes
+        price= float(input("Enter Price: "))
+        expensive_apartamnets = []
+        for x in apartments:
+            if float(x[8])> price:
+                expensive_apartamnets.append(x)
+                print(apartments[:20])      
         pass
-
     elif choice == '6':
         # 
         pass
